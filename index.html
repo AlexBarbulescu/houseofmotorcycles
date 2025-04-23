@@ -24,12 +24,8 @@
         overflow-x: hidden;
       }
 
-      .builder-afcb7d3606b542a093e2b61046907dc0:hover {
-        background: white;
-      }
-
-      .builder-e31a21d7efda4e94b8b3c3a27247ee8f:hover {
-        background: white;
+      .builder-hover-white:hover {
+        background: #fff;
       }
 
       .website {
@@ -55,6 +51,7 @@
         }
       }
 
+      /* Navigation */
       .menu-bar {
         display: flex;
         justify-content: space-between;
@@ -115,7 +112,7 @@
         object-fit: contain;
       }
 
-      .brand-text {
+      .brand-name {
         margin-left: 15px;
         display: flex;
         align-items: center;
@@ -123,14 +120,14 @@
       }
 
       @media (max-width: 640px) {
-        .brand-text {
+        .brand-name {
           flex-direction: column;
           align-items: flex-start;
           gap: 2px;
         }
       }
 
-      .brand-text-bold {
+      .brand-primary {
         font-family: "Inter", sans-serif;
         font-weight: 900;
         font-size: 25px;
@@ -141,20 +138,20 @@
       }
 
       @media (max-width: 991px) {
-        .brand-text-bold {
+        .brand-primary {
           line-height: 30px;
           letter-spacing: 0px;
         }
       }
 
       @media (max-width: 640px) {
-        .brand-text-bold {
+        .brand-primary {
           font-size: 18px;
           line-height: 18px;
         }
       }
 
-      .brand-text-regular {
+      .brand-secondary {
         font-family: "Inter", sans-serif;
         font-weight: 500;
         font-size: 25px;
@@ -164,14 +161,14 @@
       }
 
       @media (max-width: 991px) {
-        .brand-text-regular {
+        .brand-secondary {
           line-height: 30px;
           letter-spacing: 0px;
         }
       }
 
       @media (max-width: 640px) {
-        .brand-text-regular {
+        .brand-secondary {
           font-size: 18px;
           line-height: 18px;
         }
@@ -224,7 +221,7 @@
         }
       }
 
-      .nav-item-active {
+      .nav-item-home {
         font-family: "Noto Sans", sans-serif;
         font-size: 14px;
         font-weight: 600;
@@ -235,52 +232,11 @@
       }
 
       @media (max-width: 991px) {
-        .nav-item-active {
+        .nav-item-home {
           width: 100%;
           padding: 10px 0;
           border-bottom: 1px solid #eee;
         }
-      }
-
-      .nav-item-dropdown {
-        font-family: "Noto Sans", sans-serif;
-        font-size: 14px;
-        font-weight: 600;
-        color: #121212;
-        text-transform: uppercase;
-        display: flex;
-        align-items: center;
-        gap: 5px;
-        cursor: pointer;
-      }
-
-      @media (max-width: 991px) {
-        .nav-item-dropdown {
-          border-bottom: 1px solid #eee;
-          width: 100%;
-          padding-top: 10px;
-          padding-bottom: 10px;
-        }
-      }
-
-      @media (max-width: 640px) {
-        .nav-item-dropdown {
-          width: 100%;
-          padding: 10px 0;
-          border-bottom: 1px solid #eee;
-          justify-content: space-between;
-        }
-      }
-
-      .dropdown-content {
-        position: relative;
-        display: flex;
-        align-items: center;
-        gap: 5px;
-      }
-
-      .dropdown-icon {
-        transition: transform 0.3s ease;
       }
 
       .nav-item {
@@ -289,6 +245,8 @@
         font-weight: 600;
         color: #121212;
         text-transform: uppercase;
+        display: flex;
+        align-items: center;
         gap: 5px;
         cursor: pointer;
       }
@@ -305,13 +263,52 @@
       @media (max-width: 640px) {
         .nav-item {
           width: 100%;
+          padding: 10px 0;
+          border-bottom: 1px solid #eee;
+          justify-content: space-between;
+        }
+      }
+
+      .dropdown-wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+
+      .chevron-icon {
+        transition: transform 0.3s ease;
+      }
+
+      .nav-link {
+        font-family: "Noto Sans", sans-serif;
+        font-size: 14px;
+        font-weight: 600;
+        color: #121212;
+        text-transform: uppercase;
+        gap: 5px;
+        cursor: pointer;
+      }
+
+      @media (max-width: 991px) {
+        .nav-link {
+          border-bottom: 1px solid #eee;
+          width: 100%;
+          padding-top: 10px;
+          padding-bottom: 10px;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .nav-link {
+          width: 100%;
           padding-top: 10px;
           padding-bottom: 10px;
           border-bottom: 1px solid #eee;
         }
       }
 
-      .about-dropdown {
+      .about-wrapper {
         position: relative;
         display: flex;
         align-items: center;
@@ -319,7 +316,7 @@
       }
 
       @media (max-width: 640px) {
-        .about-dropdown {
+        .about-wrapper {
           justify-content: flex-start;
           align-items: center;
         }
@@ -334,7 +331,8 @@
         }
       }
 
-      .hero-section {
+      /* Hero Section */
+      .hero {
         position: relative;
         width: 100%;
         height: 100vh;
@@ -348,13 +346,13 @@
       }
 
       @media (max-width: 991px) {
-        .hero-section {
+        .hero {
           display: flex;
         }
       }
 
       @media (max-width: 640px) {
-        .hero-section {
+        .hero {
           background-image: url(https://cdn.builder.io/api/v1/image/assets%2F7aeb5cf45399475b85c3a321bfd0a8a2%2Fabd995e12c2a45b1aa348a448093e239);
           background-position: center;
           background-repeat: no-repeat;
@@ -362,7 +360,7 @@
         }
       }
 
-      .hero-overlay {
+      .overlay {
         position: absolute;
         top: 0;
         left: 0;
@@ -373,18 +371,18 @@
       }
 
       @media (max-width: 991px) {
-        .hero-overlay {
+        .overlay {
           display: flex;
         }
       }
 
       @media (max-width: 640px) {
-        .hero-overlay {
+        .overlay {
           display: flex;
         }
       }
 
-      .hero-content {
+      .text-box {
         position: absolute;
         top: 50%;
         left: 120px;
@@ -398,7 +396,7 @@
       }
 
       @media (max-width: 991px) {
-        .hero-content {
+        .text-box {
           width: 80%;
           padding: 0;
           left: 50%;
@@ -407,7 +405,7 @@
       }
 
       @media (max-width: 640px) {
-        .hero-content {
+        .text-box {
           gap: 20px;
           padding: 0;
           width: 90%;
@@ -416,14 +414,14 @@
         }
       }
 
-      .hero-subtitle {
+      .subtitle {
         font-family: "Roboto", sans-serif;
         font-size: 18px;
         font-weight: 100;
         letter-spacing: 10px;
       }
 
-      .hero-title {
+      .title {
         font-family: "Inter", sans-serif;
         font-size: 85px;
         font-weight: 700;
@@ -432,30 +430,30 @@
       }
 
       @media (max-width: 991px) {
-        .hero-title {
+        .title {
           font-size: 60px;
         }
       }
 
       @media (max-width: 640px) {
-        .hero-title {
+        .title {
           font-size: 36px;
         }
       }
 
-      .hero-title-text {
+      .title-text {
         font-size: 54px;
         line-height: 60px;
       }
 
       @media (max-width: 640px) {
-        .hero-title-text {
+        .title-text {
           font-size: 21px;
           line-height: 0px;
         }
       }
 
-      .hero-description {
+      .description {
         font-family: "Inter", sans-serif;
         font-size: 20px;
         line-height: 27px;
@@ -464,19 +462,19 @@
       }
 
       @media (max-width: 991px) {
-        .hero-description {
+        .description {
           font-size: 18px;
         }
       }
 
       @media (max-width: 640px) {
-        .hero-description {
+        .description {
           font-size: 16px;
           line-height: 15px;
         }
       }
 
-      .hero-cta {
+      .cta-button {
         padding: 16px 21px;
         border: 1px solid white;
         font-family: "Inter", sans-serif;
@@ -491,14 +489,15 @@
       }
 
       @media (max-width: 640px) {
-        .hero-cta {
+        .cta-button {
           font-size: 16px;
           width: auto;
           align-self: start;
         }
       }
 
-      .features-section {
+      /* Features Section */
+      .features {
         padding: 100px 50px;
         background: #fff;
         display: flex;
@@ -511,14 +510,14 @@
       }
 
       @media (max-width: 991px) {
-        .features-section {
+        .features {
           padding: 60px 30px;
           background-color: rgba(0, 0, 0, 1);
         }
       }
 
       @media (max-width: 640px) {
-        .features-section {
+        .features {
           padding: 40px 20px;
         }
       }
@@ -578,7 +577,7 @@
         }
       }
 
-      .features-grid {
+      .feature-items {
         display: grid;
         gap: 30px;
         grid-template-columns: repeat(2, 1fr);
@@ -587,7 +586,7 @@
       }
 
       @media (max-width: 991px) {
-        .features-grid {
+        .feature-items {
           margin-top: 30px;
           gap: 25px;
           max-width: 100%;
@@ -598,7 +597,7 @@
       }
 
       @media (max-width: 640px) {
-        .features-grid {
+        .feature-items {
           margin-left: auto;
           grid-template-columns: 1fr;
           gap: 20px;
@@ -722,7 +721,8 @@
         }
       }
 
-      .gallery-section {
+      /* Gallery Section */
+      .gallery {
         padding: 100px 50px;
         background: #f1f1f1;
         position: relative;
@@ -732,13 +732,13 @@
       }
 
       @media (max-width: 991px) {
-        .gallery-section {
+        .gallery {
           padding: 60px 30px;
         }
       }
 
       @media (max-width: 640px) {
-        .gallery-section {
+        .gallery {
           padding: 40px 20px;
         }
       }
@@ -758,7 +758,7 @@
         }
       }
 
-      .gallery-container {
+      .carousel-container {
         max-width: 1200px;
         margin: 0 auto;
         position: relative;
@@ -766,18 +766,18 @@
         border-radius: 12px;
       }
 
-      .gallery-slider {
+      .carousel-track {
         display: flex;
         transition: transform 0.5s ease;
       }
 
-      .gallery-slide {
+      .carousel-slide {
         min-width: 100%;
         height: 500px;
         position: relative;
       }
 
-      .gallery-image {
+      .carousel-image {
         aspect-ratio: 1;
         object-fit: cover;
         object-position: center;
@@ -786,16 +786,7 @@
         overflow: hidden;
       }
 
-      .gallery-image-wide {
-        aspect-ratio: 1.5;
-        object-fit: cover;
-        object-position: center;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-      }
-
-      .prev-button {
+      .carousel-prev {
         position: absolute;
         left: 20px;
         top: 50%;
@@ -812,11 +803,11 @@
         background-color: rgba(255, 255, 255, 0.8);
       }
 
-      .prev-button:hover {
+      .carousel-prev:hover {
         background: white;
       }
 
-      .next-button {
+      .carousel-next {
         position: absolute;
         right: 20px;
         top: 50%;
@@ -833,11 +824,11 @@
         background-color: rgba(255, 255, 255, 0.8);
       }
 
-      .next-button:hover {
+      .carousel-next:hover {
         background: white;
       }
 
-      .gallery-dots {
+      .carousel-dots {
         position: absolute;
         bottom: 20px;
         left: 50%;
@@ -847,7 +838,7 @@
         z-index: 2;
       }
 
-      .dot {
+      .carousel-dot {
         width: 10px;
         height: 10px;
         border-radius: 50%;
@@ -855,9 +846,15 @@
         cursor: pointer;
         transition: background 0.3s ease;
         padding: 0;
+        background: rgba(255, 255, 255, 0.5);
       }
 
-      .location-section {
+      .carousel-dot.active {
+        background: white;
+      }
+
+      /* Location Section */
+      .location {
         padding: 100px 50px;
         display: flex;
         flex-direction: column;
@@ -869,13 +866,13 @@
       }
 
       @media (max-width: 991px) {
-        .location-section {
+        .location {
           padding: 60px 30px;
         }
       }
 
       @media (max-width: 640px) {
-        .location-section {
+        .location {
           padding: 40px 20px;
         }
       }
@@ -916,7 +913,12 @@
         }
       }
 
-      .services-section {
+      .map-iframe {
+        border: 0;
+      }
+
+      /* Services Section */
+      .services {
         padding: 100px 50px;
         display: none;
         flex-direction: column;
@@ -926,14 +928,14 @@
       }
 
       @media (max-width: 991px) {
-        .services-section {
+        .services {
           padding: 60px 30px;
           display: none;
         }
       }
 
       @media (max-width: 640px) {
-        .services-section {
+        .services {
           padding: 40px 20px;
           display: none;
         }
@@ -990,14 +992,15 @@
         margin-bottom: 15px;
       }
 
-      .site-footer {
+      /* Footer */
+      .footer {
         color: white;
         padding: 60px 50px 30px;
         background-color: #121212;
       }
 
       @media (max-width: 640px) {
-        .site-footer {
+        .footer {
           padding: 40px 20px 20px;
         }
       }
@@ -1037,7 +1040,7 @@
         margin-bottom: 10px;
       }
 
-      .footer-copyright {
+      .copyright {
         border-top: 1px solid rgba(255, 255, 255, 0.1);
         padding-top: 20px;
         text-align: center;
@@ -1046,61 +1049,51 @@
     </style>
   </head>
   <body>
-    <div class="website">
+    <div class="website" data-el="website">
       <header class="menu-bar">
         <div class="logo-container">
           <div class="logo-wrapper">
             <img
               src="https://cdn.builder.io/api/v1/image/assets%2F7aeb5cf45399475b85c3a321bfd0a8a2%2F797b33e7b81b45b9bf26db125f0cd45c"
-              alt="House of Motorcycles logo"
+              alt="House of Motorcycles Logo"
               class="logo-image"
             />
           </div>
-          <div class="brand-text">
-            <span class="brand-text-bold">HOUSE OF</span>
-            <span class="brand-text-regular">MOTORCYCLES</span>
+          <div class="brand-name">
+            <span class="brand-primary">HOUSE OF</span>
+            <span class="brand-secondary">MOTORCYCLES</span>
           </div>
         </div>
-        <button
-          class="menu-toggle"
-          aria-label="Toggle menu"
-          aria-expanded="false"
-        >
-          <i class="ti ti-menu-2 menu-icon" aria-hidden="true"></i>
+        <button class="menu-toggle" data-el="button-1" aria-label="Toggle menu">
+          <i class="ti ti-menu-2 menu-icon" data-el="i-1"></i>
         </button>
-        <nav class="nav-menu" aria-label="Main navigation">
-          <div class="nav-item-active">Home</div>
-          <div class="nav-item-dropdown">
-            <div class="dropdown-content" aria-haspopup="true">
+        <nav class="nav-menu" data-el="div-1">
+          <div class="nav-item-home">Home</div>
+          <div class="nav-item">
+            <div class="dropdown-wrapper" data-el="div-2">
               <span>Motorcycles</span>
-              <i
-                class="ti ti-chevron-down dropdown-icon"
-                aria-hidden="true"
-              ></i>
+              <i class="ti ti-chevron-down chevron-icon" data-el="i-2"></i>
             </div>
           </div>
-          <div class="nav-item">Events</div>
-          <div class="nav-item">Workshop</div>
-          <div class="nav-item-dropdown">
-            <div class="about-dropdown" aria-haspopup="true">
+          <div class="nav-link">Events</div>
+          <div class="nav-link">Workshop</div>
+          <div class="nav-item">
+            <div class="about-wrapper" data-el="div-3">
               <span class="about-text"><p>About</p></span>
-              <i
-                class="ti ti-chevron-down dropdown-icon"
-                aria-hidden="true"
-              ></i>
+              <i class="ti ti-chevron-down chevron-icon" data-el="i-3"></i>
             </div>
           </div>
         </nav>
       </header>
 
-      <section class="hero-section">
-        <div class="hero-overlay" aria-hidden="true"></div>
-        <div class="hero-content">
-          <div class="hero-subtitle"><p>Dein Team von</p></div>
-          <h1 class="hero-title">
-            <p class="hero-title-text">HOUSE OF MOTORCYCLES</p>
-          </h1>
-          <div class="hero-description">
+      <section class="hero">
+        <div class="overlay"></div>
+        <div class="text-box">
+          <div class="subtitle"><p>Dein Team von</p></div>
+          <div class="title">
+            <p class="title-text">HOUSE OF MOTORCYCLES</p>
+          </div>
+          <div class="description">
             <p>
               Welcome to the House of Motorcycles – wo dein Bike mehr ist als
               nur ein Fortbewegungsmittel.
@@ -1127,25 +1120,22 @@
               – wir sind ready, wenn du es bist.
             </p>
           </div>
-          <a href="#" class="hero-cta" role="button">To the sales room</a>
+          <div class="cta-button">To the sales room</div>
         </div>
       </section>
 
-      <section class="features-section">
+      <section class="features">
         <div class="features-container">
           <img
             src="https://cdn.builder.io/api/v1/image/assets/TEMP/385ca04a65f500bbd7b5659b92dd564b468b9283?placeholderIfAbsent=true"
             alt="Custom motorcycle showcase"
             class="motorcycle-image"
           />
-          <div class="features-grid">
+          <div class="feature-items">
             <article class="feature-card">
               <div class="icon-container">
                 <div class="icon-box">
-                  <i
-                    class="ti ti-shopping-cart feature-icon"
-                    aria-hidden="true"
-                  ></i>
+                  <i class="ti ti-shopping-cart feature-icon"></i>
                 </div>
               </div>
               <h3 class="feature-title">Online purchase</h3>
@@ -1157,7 +1147,7 @@
             <article class="feature-card">
               <div class="icon-container">
                 <div class="icon-box">
-                  <i class="ti ti-truck feature-icon" aria-hidden="true"></i>
+                  <i class="ti ti-truck feature-icon"></i>
                 </div>
               </div>
               <h3 class="feature-title">Freight forwarding delivery</h3>
@@ -1169,7 +1159,7 @@
             <article class="feature-card">
               <div class="icon-container">
                 <div class="icon-box">
-                  <i class="ti ti-refresh feature-icon" aria-hidden="true"></i>
+                  <i class="ti ti-refresh feature-icon"></i>
                 </div>
               </div>
               <h3 class="feature-title">Trade-in</h3>
@@ -1181,10 +1171,7 @@
             <article class="feature-card">
               <div class="icon-container">
                 <div class="icon-box">
-                  <i
-                    class="ti ti-motorbike feature-icon"
-                    aria-hidden="true"
-                  ></i>
+                  <i class="ti ti-motorbike feature-icon"></i>
                 </div>
               </div>
               <h3 class="feature-title">Individualization</h3>
@@ -1196,56 +1183,83 @@
         </div>
       </section>
 
-      <section class="gallery-section">
+      <section class="gallery">
         <h2 class="gallery-title">Featured Bikes</h2>
-        <div class="gallery-container">
-          <div class="gallery-slider">
-            <div class="gallery-slide">
+        <div class="carousel-container">
+          <div class="carousel-track" data-el="div-4">
+            <div class="carousel-slide">
               <img
                 alt="Custom motorcycle showcase"
                 src="https://cdn.builder.io/api/v1/image/assets%2F7aeb5cf45399475b85c3a321bfd0a8a2%2Fe02e6fad911c486b862c4eb69ce9bdc2"
-                class="gallery-image"
+                class="carousel-image"
               />
             </div>
-            <div class="gallery-slide">
+            <div class="carousel-slide">
               <img
                 alt="Vintage motorcycle"
                 src="https://cdn.builder.io/api/v1/image/assets%2F7aeb5cf45399475b85c3a321bfd0a8a2%2F7d597f568f184ebb88078eb883fe223c"
-                class="gallery-image"
+                class="carousel-image"
               />
             </div>
-            <div class="gallery-slide">
+            <div class="carousel-slide">
               <img
                 alt="Modern motorcycle"
                 src="https://cdn.builder.io/api/v1/image/assets%2F7aeb5cf45399475b85c3a321bfd0a8a2%2Fc8d8193f395548cb941410f19ef11e2d"
-                class="gallery-image"
+                class="carousel-image"
               />
             </div>
-            <div class="gallery-slide">
+            <div class="carousel-slide">
               <img
                 alt="Modern motorcycle"
                 src="https://cdn.builder.io/api/v1/image/assets%2F7aeb5cf45399475b85c3a321bfd0a8a2%2Fe159abde30f6469f807763b2a55fb967"
-                class="gallery-image-wide"
+                class="carousel-image"
               />
             </div>
           </div>
-          <button class="prev-button" aria-label="Previous slide">
-            <i class="ti ti-chevron-left" aria-hidden="true"></i>
-          </button>
-          <button class="next-button" aria-label="Next slide">
-            <i class="ti ti-chevron-right" aria-hidden="true"></i>
-          </button>
-          <div
-            class="gallery-dots"
-            role="tablist"
-            aria-label="Gallery navigation"
+          <button
+            class="carousel-prev"
+            data-el="button-2"
+            aria-label="Previous slide"
           >
-            <!-- Dots will be added by JavaScript -->
+            <i class="ti ti-chevron-left"></i>
+          </button>
+          <button
+            class="carousel-next"
+            data-el="button-3"
+            aria-label="Next slide"
+          >
+            <i class="ti ti-chevron-right"></i>
+          </button>
+          <div class="carousel-dots">
+            <button
+              class="carousel-dot active"
+              data-slide="0"
+              data-el="button-4"
+              aria-label="Go to slide 1"
+            ></button>
+            <button
+              class="carousel-dot"
+              data-slide="1"
+              data-el="button-4"
+              aria-label="Go to slide 2"
+            ></button>
+            <button
+              class="carousel-dot"
+              data-slide="2"
+              data-el="button-4"
+              aria-label="Go to slide 3"
+            ></button>
+            <button
+              class="carousel-dot"
+              data-slide="3"
+              data-el="button-4"
+              aria-label="Go to slide 4"
+            ></button>
           </div>
         </div>
       </section>
 
-      <section class="location-section">
+      <section class="location">
         <h2 class="location-title">Find Us Here</h2>
         <div class="map-container">
           <iframe
@@ -1255,17 +1269,18 @@
             allowfullscreen=""
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
-            title="House of Motorcycles location map"
-            style="border: 0"
+            class="map-iframe"
+            data-el="iframe-1"
+            title="House of Motorcycles Location"
           ></iframe>
         </div>
       </section>
 
-      <section class="services-section">
+      <section class="services">
         <h2 class="services-title">Our Services</h2>
         <div class="services-grid">
           <article class="service-card">
-            <i class="ti ti-motorcycle service-icon" aria-hidden="true"></i>
+            <i class="ti ti-motorcycle service-icon"></i>
             <h3 class="service-title">Custom Builds</h3>
             <p>
               Transform your vision into reality with our expert customization
@@ -1275,7 +1290,7 @@
         </div>
       </section>
 
-      <footer class="site-footer">
+      <footer class="footer">
         <div class="footer-content">
           <div>
             <h3 class="footer-heading">Contact Us</h3>
@@ -1291,7 +1306,7 @@
             </ul>
           </div>
         </div>
-        <div class="footer-copyright">
+        <div class="copyright">
           © 2025 House of Motorcycles. All rights reserved.
         </div>
       </footer>
@@ -1303,174 +1318,166 @@
           isMobileMenuOpen: false,
           hoveredItem: null,
           currentSlide: 0,
-          totalSlides: 4,
-
           toggleMenu() {
             state.isMobileMenuOpen = !state.isMobileMenuOpen;
             update();
           },
-
           closeMenu() {
             state.isMobileMenuOpen = false;
             update();
           },
-
           setHoveredItem(item) {
             state.hoveredItem = item;
             update();
           },
-
           nextSlide() {
-            state.currentSlide = (state.currentSlide + 1) % state.totalSlides;
+            state.currentSlide = (state.currentSlide + 1) % 4;
             update();
           },
-
           prevSlide() {
-            state.currentSlide =
-              (state.currentSlide - 1 + state.totalSlides) % state.totalSlides;
+            state.currentSlide = (state.currentSlide - 1 + 4) % 4;
             update();
           },
-
           goToSlide(index) {
             state.currentSlide = index;
             update();
           },
         };
 
-        // Initialize dots
-        function initializeDots() {
-          const dotsContainer = document.querySelector(".gallery-dots");
-          dotsContainer.innerHTML = "";
+        let pendingUpdate = false;
 
-          for (let i = 0; i < state.totalSlides; i++) {
-            const dot = document.createElement("button");
-            dot.classList.add("dot");
-            dot.setAttribute("aria-label", `Go to slide ${i + 1}`);
-            dot.setAttribute("role", "tab");
-            dot.setAttribute(
-              "aria-selected",
-              i === state.currentSlide ? "true" : "false",
-            );
-            dot.style.background =
-              i === state.currentSlide ? "white" : "rgba(255, 255, 255, 0.5)";
-
-            dot.addEventListener("click", () => {
-              state.goToSlide(i);
-            });
-
-            dotsContainer.appendChild(dot);
-          }
-        }
-
+        // Function to update data bindings and UI
         function update() {
-          // Update mobile menu toggle button
-          const menuToggle = document.querySelector(".menu-toggle");
-          const menuIcon = menuToggle.querySelector("i");
+          if (pendingUpdate === true) {
+            return;
+          }
+          pendingUpdate = true;
+
+          // Website click handler
+          document
+            .querySelector("[data-el='website']")
+            .addEventListener("click", onWebsiteClick);
+
+          // Menu toggle button
+          const menuToggle = document.querySelector("[data-el='button-1']");
+          menuToggle.addEventListener("click", onButton1Click);
+
+          // Menu icon
+          const menuIcon = document.querySelector("[data-el='i-1']");
           menuIcon.className = state.isMobileMenuOpen
             ? "ti ti-x menu-icon"
             : "ti ti-menu-2 menu-icon";
-          menuToggle.setAttribute("aria-expanded", state.isMobileMenuOpen);
 
-          // Update mobile menu
-          const navMenu = document.querySelector(".nav-menu");
-          if (state.isMobileMenuOpen) {
-            navMenu.classList.add("open");
-          } else {
-            navMenu.classList.remove("open");
-          }
+          // Nav menu
+          const navMenu = document.querySelector("[data-el='div-1']");
+          navMenu.classList.toggle("open", state.isMobileMenuOpen);
+          navMenu.addEventListener("mouseleave", onDiv1Mouseleave);
 
-          // Update dropdown icons
-          const motorcyclesIcon = document.querySelector(
-            ".dropdown-content .dropdown-icon",
-          );
+          // Motorcycles dropdown
+          const motorcyclesDropdown =
+            document.querySelector("[data-el='div-2']");
+          motorcyclesDropdown.addEventListener("mouseenter", onDiv2Mouseenter);
+          motorcyclesDropdown.addEventListener("mouseleave", onDiv2Mouseleave);
+
+          // Motorcycles dropdown icon
+          const motorcyclesIcon = document.querySelector("[data-el='i-2']");
           motorcyclesIcon.style.transform =
             state.hoveredItem === "motorcycles"
               ? "rotate(180deg)"
               : "rotate(0)";
 
-          const aboutIcon = document.querySelector(
-            ".about-dropdown .dropdown-icon",
-          );
+          // About dropdown
+          const aboutDropdown = document.querySelector("[data-el='div-3']");
+          aboutDropdown.addEventListener("mouseenter", onDiv3Mouseenter);
+          aboutDropdown.addEventListener("mouseleave", onDiv3Mouseleave);
+
+          // About dropdown icon
+          const aboutIcon = document.querySelector("[data-el='i-3']");
           aboutIcon.style.transform =
             state.hoveredItem === "about" ? "rotate(180deg)" : "rotate(0)";
 
-          // Update gallery slider
-          const slider = document.querySelector(".gallery-slider");
-          slider.style.transform = `translateX(-${state.currentSlide * 100}%)`;
+          // Carousel track
+          const carouselTrack = document.querySelector("[data-el='div-4']");
+          carouselTrack.style.transform = `translateX(-${state.currentSlide * 100}%)`;
 
-          // Update dots
-          const dots = document.querySelectorAll(".dot");
+          // Carousel prev button
+          const prevButton = document.querySelector("[data-el='button-2']");
+          prevButton.addEventListener("click", onButton2Click);
+
+          // Carousel next button
+          const nextButton = document.querySelector("[data-el='button-3']");
+          nextButton.addEventListener("click", onButton3Click);
+
+          // Carousel dots
+          const dots = document.querySelectorAll(".carousel-dot");
           dots.forEach((dot, index) => {
-            dot.style.background =
-              index === state.currentSlide
-                ? "white"
-                : "rgba(255, 255, 255, 0.5)";
-            dot.setAttribute(
-              "aria-selected",
-              index === state.currentSlide ? "true" : "false",
-            );
+            dot.classList.toggle("active", index === state.currentSlide);
+            dot.addEventListener("click", () => {
+              state.goToSlide(index);
+            });
           });
+
+          pendingUpdate = false;
         }
 
-        // Event Listeners
-        document.querySelector(".website").addEventListener("click", () => {
+        // Event handler for website click
+        function onWebsiteClick(event) {
           state.closeMenu();
-        });
+        }
 
-        document
-          .querySelector(".menu-toggle")
-          .addEventListener("click", (event) => {
-            event.stopPropagation();
-            state.toggleMenu();
-          });
+        // Event handler for menu toggle button
+        function onButton1Click(event) {
+          event.stopPropagation();
+          state.toggleMenu();
+        }
 
-        document
-          .querySelector(".dropdown-content")
-          .addEventListener("mouseenter", () => {
-            state.setHoveredItem("motorcycles");
-          });
+        // Event handler for nav menu mouseleave
+        function onDiv1Mouseleave(event) {
+          state.closeMenu();
+        }
 
-        document
-          .querySelector(".dropdown-content")
-          .addEventListener("mouseleave", () => {
-            state.setHoveredItem(null);
-          });
+        // Event handler for motorcycles dropdown mouseenter
+        function onDiv2Mouseenter(event) {
+          state.setHoveredItem("motorcycles");
+        }
 
-        document
-          .querySelector(".about-dropdown")
-          .addEventListener("mouseenter", () => {
-            state.setHoveredItem("about");
-          });
+        // Event handler for motorcycles dropdown mouseleave
+        function onDiv2Mouseleave(event) {
+          state.setHoveredItem(null);
+        }
 
-        document
-          .querySelector(".about-dropdown")
-          .addEventListener("mouseleave", () => {
-            state.setHoveredItem(null);
-          });
+        // Event handler for about dropdown mouseenter
+        function onDiv3Mouseenter(event) {
+          state.setHoveredItem("about");
+        }
 
-        document.querySelector(".prev-button").addEventListener("click", () => {
+        // Event handler for about dropdown mouseleave
+        function onDiv3Mouseleave(event) {
+          state.setHoveredItem(null);
+        }
+
+        // Event handler for carousel prev button
+        function onButton2Click(event) {
           state.prevSlide();
-        });
+        }
 
-        document.querySelector(".next-button").addEventListener("click", () => {
+        // Event handler for carousel next button
+        function onButton3Click(event) {
           state.nextSlide();
-        });
+        }
 
-        // Initialize dots
-        initializeDots();
-
-        // Initial update
+        // Initialize the UI
         update();
 
-        // Auto-rotate gallery
+        // Auto-advance carousel
         const interval = setInterval(() => {
           state.nextSlide();
         }, 5000);
 
-        // Clean up interval on page unload
-        window.addEventListener("beforeunload", () => {
+        // Cleanup function (not used in this context but good practice)
+        function cleanup() {
           clearInterval(interval);
-        });
+        }
       })();
     </script>
   </body>
