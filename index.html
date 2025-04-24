@@ -1,17 +1,17 @@
 <!doctype html>
-<html lang="en">
+<html lang="de">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>House of Motorcycles</title>
     <link rel="stylesheet" href="styles.css" />
     <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700;900&family=Noto+Sans:wght@400;600&family=Roboto:wght@100;300;400&display=swap"
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@tabler/icons@1.0.0/iconfont/tabler-icons.min.css"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&family=Noto+Sans:wght@400;600&family=Roboto:wght@100;300;400&display=swap"
       rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@tabler/icons@1.74.0/iconfont/tabler-icons.min.css"
     />
 
     <!-- Social Media Meta Tags -->
@@ -23,7 +23,7 @@
     />
     <meta
       property="og:description"
-      content="Welcome to House of Motorcycles – where your bike is more than just transportation. Custom builds, trade-ins, and expert service."
+      content="Welcome to House of Motorcycles – where your bike is more than just a means of transportation. Custom builds, trade-ins, and expert service."
     />
     <meta
       property="og:image"
@@ -39,7 +39,7 @@
     />
     <meta
       name="twitter:description"
-      content="Welcome to House of Motorcycles – where your bike is more than just transportation. Custom builds, trade-ins, and expert service."
+      content="Welcome to House of Motorcycles – where your bike is more than just a means of transportation. Custom builds, trade-ins, and expert service."
     />
     <meta
       name="twitter:image"
@@ -47,7 +47,7 @@
     />
   </head>
   <body>
-    <div class="website" id="website">
+    <div class="website">
       <header class="menu-bar">
         <div class="logo-container">
           <div class="logo-wrapper">
@@ -58,43 +58,38 @@
             />
           </div>
           <div class="brand-name">
-            <span class="brand-primary">HOUSE OF</span>
-            <span class="brand-secondary">MOTORCYCLES</span>
+            <span class="brand-name-bold">HOUSE OF</span>
+            <span class="brand-name-regular">MOTORCYCLES</span>
           </div>
         </div>
-        <button
-          class="mobile-menu-button"
-          aria-label="Toggle menu"
-          aria-expanded="false"
-        >
-          <i class="menu-icon"></i>
+        <button class="mobile-menu-toggle" aria-label="Toggle menu">
+          <i class="ti ti-menu-2"></i>
         </button>
         <nav class="main-nav">
-          <a href="#" class="nav-item nav-active">Home</a>
-          <div class="nav-dropdown">
-            <div class="dropdown-trigger">
-              <span>Motorcycles</span>
-              <i class="ti ti-chevron-down dropdown-icon"></i>
-            </div>
-          </div>
-          <a href="#" class="nav-item">Events</a>
-          <a href="#" class="nav-item">Workshop</a>
-          <div class="nav-dropdown">
-            <div class="dropdown-trigger">
-              <span class="about-text"><p>About</p></span>
-              <i class="ti ti-chevron-down dropdown-icon"></i>
-            </div>
+          <a href="#hero" class="nav-item nav-home">Home</a>
+          <a href="#features" class="nav-item nav-about">
+            <span class="nav-text">Über uns</span>
+          </a>
+          <a href="#gallery" class="nav-item nav-motorcycles">
+            <span class="nav-text">Motorräder</span>
+          </a>
+          <a href="#location" class="nav-item">Veranstaltungen</a>
+          <div class="language-switcher">
+            <button class="lang-btn lang-de" aria-label="Switch to German">
+              DE
+            </button>
+            <button class="lang-btn lang-en" aria-label="Switch to English">
+              EN
+            </button>
           </div>
         </nav>
       </header>
 
-      <section class="hero">
+      <section id="hero" class="hero">
         <div class="overlay"></div>
         <div class="text-box">
-          <p class="hero-subtitle">Dein Team von</p>
-          <h1 class="hero-title">
-            <p class="title-text">HOUSE OF MOTORCYCLES</p>
-          </h1>
+          <p class="hero-welcome">Dein Team von</p>
+          <h1 class="hero-title">HOUSE OF MOTORCYCLES</h1>
           <div class="hero-description">
             <p>
               Welcome to the House of Motorcycles – wo dein Bike mehr ist als
@@ -124,114 +119,120 @@
           </div>
           <a href="#" class="cta-button">To the sales room</a>
         </div>
+        <button class="scroll-to-top" aria-label="Scroll to top">
+          <i class="ti ti-arrow-up"></i>
+        </button>
       </section>
 
-      <section class="features">
+      <section id="features" class="features">
         <div class="features-container">
           <img
-            src="https://cdn.builder.io/api/v1/image/assets/TEMP/385ca04a65f500bbd7b5659b92dd564b468b9283?placeholderIfAbsent=true"
+            src="https://cdn.builder.io/api/v1/image/assets%2F7aeb5cf45399475b85c3a321bfd0a8a2%2F3505edb6bfe541e78d87d6c939af6a7a"
             alt="Custom motorcycle showcase"
             class="motorcycle-image"
           />
-          <div class="feature-items">
-            <article class="feature-card">
+          <div class="service-items">
+            <article class="service-item">
               <div class="icon-container">
                 <div class="icon-box">
-                  <i class="ti ti-shopping-cart feature-icon"></i>
+                  <i class="ti ti-shopping-cart"></i>
                 </div>
               </div>
-              <h3 class="feature-title">Online purchase</h3>
-              <p class="feature-description">
-                Digital purchase and reservation in just 10 minutes – purchase
-                contract within 12 hours
+              <h3 class="service-title">Online Kauf</h3>
+              <p class="service-description">
+                Digitaler Kauf und Reservierung in nur 10 Minuten - Kaufvertrag
+                innerhalb von 12 Stunden
               </p>
             </article>
-            <article class="feature-card">
+            <article class="service-item">
               <div class="icon-container">
                 <div class="icon-box">
-                  <i class="ti ti-truck feature-icon"></i>
+                  <i class="ti ti-truck"></i>
                 </div>
               </div>
-              <h3 class="feature-title">Freight forwarding delivery</h3>
-              <p class="feature-description">
-                Nationwide delivery directly to your door, including transport
-                security
+              <h3 class="service-title">Lieferung</h3>
+              <p class="service-description">
+                Bundesweite Lieferung direkt zu Ihnen nach Hause, inklusive
+                Transportsicherung
               </p>
             </article>
-            <article class="feature-card">
+            <article class="service-item">
               <div class="icon-container">
                 <div class="icon-box">
-                  <i class="ti ti-refresh feature-icon"></i>
+                  <i class="ti ti-refresh"></i>
                 </div>
               </div>
-              <h3 class="feature-title">Trade-in</h3>
-              <p class="feature-description">
-                Trade-ins for all brands, including pickup, are easy and
-                hassle-free.
+              <h3 class="service-title">Inzahlungnahme</h3>
+              <p class="service-description">
+                Inzahlungnahme aller Marken inklusive Abholung einfach und
+                unkompliziert
               </p>
             </article>
-            <article class="feature-card">
+            <article class="service-item">
               <div class="icon-container">
                 <div class="icon-box">
-                  <i class="ti ti-motorbike feature-icon"></i>
+                  <i class="ti ti-motorbike"></i>
                 </div>
               </div>
-              <h3 class="feature-title">Individualization</h3>
-              <p class="feature-description">
-                Extensive modifications to all vehicles upon request
+              <h3 class="service-title">Individualisierung</h3>
+              <p class="service-description">
+                Umfangreiche Umbauten aller Fahrzeuge auf Wunsch
               </p>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="gallery">
-        <h2 class="gallery-title">Featured Bikes</h2>
-        <div class="gallery-container">
-          <div class="gallery-slider">
-            <div class="gallery-slide">
+      <section id="gallery" class="gallery">
+        <h2 class="section-title">Ausgewählte Bikes</h2>
+        <div class="carousel-container">
+          <div class="carousel-track">
+            <div class="carousel-slide">
               <img
                 alt="Custom motorcycle showcase"
                 src="https://cdn.builder.io/api/v1/image/assets%2F7aeb5cf45399475b85c3a321bfd0a8a2%2Fe02e6fad911c486b862c4eb69ce9bdc2"
-                class="gallery-image"
+                class="carousel-image"
               />
             </div>
-            <div class="gallery-slide">
+            <div class="carousel-slide">
               <img
                 alt="Vintage motorcycle"
                 src="https://cdn.builder.io/api/v1/image/assets%2F7aeb5cf45399475b85c3a321bfd0a8a2%2F7d597f568f184ebb88078eb883fe223c"
-                class="gallery-image"
+                class="carousel-image"
               />
             </div>
-            <div class="gallery-slide">
+            <div class="carousel-slide">
               <img
                 alt="Modern motorcycle"
                 src="https://cdn.builder.io/api/v1/image/assets%2F7aeb5cf45399475b85c3a321bfd0a8a2%2Fc8d8193f395548cb941410f19ef11e2d"
-                class="gallery-image"
+                class="carousel-image"
               />
             </div>
-            <div class="gallery-slide">
+            <div class="carousel-slide">
               <img
                 alt="Modern motorcycle"
                 src="https://cdn.builder.io/api/v1/image/assets%2F7aeb5cf45399475b85c3a321bfd0a8a2%2Fe159abde30f6469f807763b2a55fb967"
-                class="gallery-image"
+                class="carousel-image"
               />
             </div>
           </div>
-          <button class="gallery-prev" aria-label="Previous slide">
+          <button class="carousel-btn prev-btn" aria-label="Previous slide">
             <i class="ti ti-chevron-left"></i>
           </button>
-          <button class="gallery-next" aria-label="Next slide">
+          <button class="carousel-btn next-btn" aria-label="Next slide">
             <i class="ti ti-chevron-right"></i>
           </button>
-          <div class="gallery-dots">
-            <!-- Dots will be added by JavaScript -->
+          <div class="carousel-dots">
+            <button class="dot active" aria-label="Go to slide 1"></button>
+            <button class="dot" aria-label="Go to slide 2"></button>
+            <button class="dot" aria-label="Go to slide 3"></button>
+            <button class="dot" aria-label="Go to slide 4"></button>
           </div>
         </div>
       </section>
 
-      <section class="location">
-        <h2 class="location-title">Find Us Here</h2>
+      <section id="location" class="location">
+        <h2 class="section-title">Standort</h2>
         <div class="map-container">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2249.3431843841287!2d9.406741312154775!3d54.74448427986826!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47b36982fcfc827b%3A0x82a85d0bc78e0ab6!2sHouse%20of%20Motorcycles!5e0!3m2!1sen!2sde!4v1709234067345!5m2!1sen!2sde"
@@ -240,46 +241,38 @@
             allowfullscreen=""
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
-            title="House of Motorcycles location map"
-          ></iframe>
-        </div>
-      </section>
-
-      <section class="services">
-        <h2 class="services-title">Our Services</h2>
-        <div class="services-container">
-          <article class="service-card">
-            <i class="ti ti-motorcycle service-icon"></i>
-            <h3 class="service-title">Custom Builds</h3>
-            <p class="service-description">
-              Transform your vision into reality with our expert customization
-              services.
-            </p>
-          </article>
+            title="House of Motorcycles location"
+            aria-label="Google Maps showing House of Motorcycles location"
+          >
+          </iframe>
         </div>
       </section>
 
       <footer class="footer">
         <div class="footer-content">
-          <div class="footer-section">
-            <h3 class="footer-heading">Contact Us</h3>
-            <p>Email: info@houseofmotorcycles.com</p>
-            <p>Phone: +1 234 567 890</p>
+          <div class="contact-info">
+            <h3 class="footer-heading">Kontakt</h3>
+            <p>Instagram: @house.of.motorcycles</p>
+            <p>Tel: +49 151 15901791</p>
+            <div class="footer-language-switcher">
+              <button class="footer-lang-btn footer-lang-de">DE</button>
+              <button class="footer-lang-btn footer-lang-en">EN</button>
+            </div>
           </div>
-          <div class="footer-section">
-            <h3 class="footer-heading">Quick Links</h3>
+          <div class="quick-links">
+            <h3 class="footer-heading">Schnellzugriff</h3>
             <ul class="footer-links">
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Services</a></li>
-              <li><a href="#">Gallery</a></li>
+              <li><a href="#features" class="footer-link">Über uns</a></li>
+              <li><a href="#gallery" class="footer-link">Motorräder</a></li>
             </ul>
           </div>
         </div>
         <div class="copyright">
-          © 2025 House of Motorcycles. All rights reserved.
+          © 2025 House of Motorcycles. Alle Rechte vorbehalten.
         </div>
       </footer>
     </div>
+
     <script src="script.js"></script>
   </body>
 </html>

@@ -1,245 +1,369 @@
-(() => {
+document.addEventListener("DOMContentLoaded", function () {
+  // State management
   const state = {
     isMobileMenuOpen: false,
-    hoveredItem: null,
     currentSlide: 0,
-    toggleMenu() {
-      state.isMobileMenuOpen = !state.isMobileMenuOpen;
-      update();
-    },
-    closeMenu() {
-      state.isMobileMenuOpen = false;
-      update();
-    },
-    setHoveredItem(item) {
-      state.hoveredItem = item;
-      update();
-    },
-    nextSlide() {
-      state.currentSlide = (state.currentSlide + 1) % 4;
-      update();
-    },
-    prevSlide() {
-      state.currentSlide = (state.currentSlide - 1 + 4) % 4;
-      update();
-    },
-    goToSlide(index) {
-      state.currentSlide = index;
-      update();
+    language: "de",
+    showScrollButton: false,
+    activeSection: "hero",
+    translations: {
+      de: {
+        home: "Home",
+        motorcycles: "Motorräder",
+        events: "Veranstaltungen",
+        workshop: "Werkstatt",
+        about: "Über uns",
+        heroWelcome: "Dein Team von",
+        heroIntro:
+          "Welcome to the House of Motorcycles – wo dein Bike mehr ist als nur ein Fortbewegungsmittel.",
+        heroBikes:
+          "Ob Harley, Chopper oder Cruiser – wir helfen dir, genau das richtige Gefährt zu finden, sei es aus Europa oder direkt als US-Import.",
+        heroPassion:
+          "Bei uns bekommst du nicht nur Bikes, sondern echte Leidenschaft auf zwei Rädern.",
+        heroCustom:
+          "Vom klassischen Auspuff- oder Lenkerumbau bis hin zu komplett individuellen Custom-Projekten: Wir machen's möglich.",
+        heroIdea: "Du hast die Idee – wir setzen sie um.",
+        heroOutro:
+          "House of Motorcycles steht für ehrliche Beratung, saubere Arbeit und Bikes, die Blicke auf sich ziehen. Schau vorbei, frag uns aus – wir sind ready, wenn du es bist.",
+        findUs: "Standort",
+        welcome: "Willkommen bei House of Motorcycles",
+        salesRoom: "Zum Verkaufsraum",
+        featuredBikes: "Ausgewählte Bikes",
+        onlinePurchase: "Online Kauf",
+        delivery: "Lieferung",
+        tradeIn: "Inzahlungnahme",
+        customization: "Individualisierung",
+        purchaseDesc:
+          "Digitaler Kauf und Reservierung in nur 10 Minuten - Kaufvertrag innerhalb von 12 Stunden",
+        deliveryDesc:
+          "Bundesweite Lieferung direkt zu Ihnen nach Hause, inklusive Transportsicherung",
+        tradeInDesc:
+          "Inzahlungnahme aller Marken inklusive Abholung einfach und unkompliziert",
+        customDesc: "Umfangreiche Umbauten aller Fahrzeuge auf Wunsch",
+        contactUs: "Kontakt",
+        quickLinks: "Schnellzugriff",
+        rights: "© 2025 House of Motorcycles. Alle Rechte vorbehalten.",
+      },
+      en: {
+        home: "Home",
+        motorcycles: "Motorcycles",
+        events: "Location",
+        workshop: "Workshop",
+        about: "About",
+        heroWelcome: "Your Team from",
+        heroIntro:
+          "Welcome to the House of Motorcycles – where your bike is more than just a means of transportation.",
+        heroBikes:
+          "Whether Harley, Chopper or Cruiser – we help you find exactly the right vehicle, be it from Europe or directly as a US import.",
+        heroPassion:
+          "With us you get not just bikes, but real passion on two wheels.",
+        heroCustom:
+          "From classic exhaust or handlebar modifications to completely individual custom projects: We make it possible.",
+        heroIdea: "You have the idea – we implement it.",
+        heroOutro:
+          "House of Motorcycles stands for honest advice, clean work and bikes that turn heads. Stop by, ask us questions – we're ready when you are.",
+        findUs: "Location",
+        welcome: "Welcome to House of Motorcycles",
+        salesRoom: "To the sales room",
+        featuredBikes: "Featured Bikes",
+        onlinePurchase: "Online Purchase",
+        delivery: "Delivery",
+        tradeIn: "Trade-in",
+        customization: "Customization",
+        purchaseDesc:
+          "Digital purchase and reservation in just 10 minutes - purchase contract within 12 hours",
+        deliveryDesc:
+          "Nationwide delivery directly to your door, including transport security",
+        tradeInDesc:
+          "Trade-ins for all brands, including pickup, are easy and hassle-free",
+        customDesc: "Extensive modifications to all vehicles upon request",
+        contactUs: "Contact Us",
+        quickLinks: "Quick Links",
+        rights: "© 2025 House of Motorcycles. All rights reserved.",
+      },
     },
   };
 
-  let nodesToDestroy = [];
-  let pendingUpdate = false;
+  // DOM Elements
+  const mobileMenuToggle = document.querySelector(".mobile-menu-toggle");
+  const mobileMenuIcon = mobileMenuToggle.querySelector("i");
+  const mainNav = document.querySelector(".main-nav");
+  const scrollToTopBtn = document.querySelector(".scroll-to-top");
+  const carouselTrack = document.querySelector(".carousel-track");
+  const carouselSlides = document.querySelectorAll(".carousel-slide");
+  const prevBtn = document.querySelector(".prev-btn");
+  const nextBtn = document.querySelector(".next-btn");
+  const dots = document.querySelectorAll(".dot");
+  const langBtns = document.querySelectorAll(".lang-btn");
+  const footerLangBtns = document.querySelectorAll(".footer-lang-btn");
+  const navItems = document.querySelectorAll(".nav-item");
+  const footerLinks = document.querySelectorAll(".footer-link");
+  const website = document.querySelector(".website");
 
-  function destroyAnyNodes() {
-    // destroy current view template refs before rendering again
-    nodesToDestroy.forEach((el) => el.remove());
-    nodesToDestroy = [];
+  // Functions
+  function toggleMobileMenu() {
+    state.isMobileMenuOpen = !state.isMobileMenuOpen;
+    updateUI();
   }
 
-  // Function to update data bindings and loops
-  function update() {
-    if (pendingUpdate === true) {
-      return;
-    }
-    pendingUpdate = true;
+  function closeMobileMenu() {
+    state.isMobileMenuOpen = false;
+    updateUI();
+  }
 
-    // Website click handler
-    document
-      .getElementById("website")
-      .addEventListener("click", onWebsiteClick);
-
-    // Mobile menu button
-    const menuButton = document.querySelector(".mobile-menu-button");
-    menuButton.removeEventListener("click", onMenuButtonClick);
-    menuButton.addEventListener("click", onMenuButtonClick);
-    menuButton.setAttribute(
-      "aria-expanded",
-      state.isMobileMenuOpen ? "true" : "false",
-    );
-
-    // Menu icon
-    const menuIcon = document.querySelector(".menu-icon");
-    menuIcon.className = state.isMobileMenuOpen
-      ? "ti ti-x menu-icon"
-      : "ti ti-menu-2 menu-icon";
-
-    // Main navigation
-    const mainNav = document.querySelector(".main-nav");
-    mainNav.removeEventListener("mouseleave", onMainNavMouseleave);
-    mainNav.addEventListener("mouseleave", onMainNavMouseleave);
-
-    // Apply mobile menu styles
-    if (window.innerWidth <= 991) {
-      Object.assign(mainNav.style, {
-        position: "fixed",
-        top: "0",
-        right: state.isMobileMenuOpen ? "0" : "-100%",
-        height: "100vh",
-        width: "300px",
-        backgroundColor: "white",
-        flexDirection: "column",
-        padding: "80px 20px",
-        transition: "right 0.3s ease",
-        boxShadow: "-5px 0 15px rgba(0,0,0,0.1)",
-        zIndex: "1000",
-      });
+  function updateUI() {
+    // Update mobile menu
+    if (state.isMobileMenuOpen) {
+      mainNav.classList.add("open");
+      mobileMenuIcon.className = "ti ti-x";
     } else {
-      Object.assign(mainNav.style, {
-        position: "",
-        top: "",
-        right: "",
-        height: "",
-        width: "",
-        backgroundColor: "",
-        flexDirection: "",
-        padding: "",
-        transition: "",
-        boxShadow: "",
-        zIndex: "",
-      });
+      mainNav.classList.remove("open");
+      mobileMenuIcon.className = "ti ti-menu-2";
     }
 
-    // Motorcycles dropdown
-    const motorcyclesDropdown = document.querySelector(
-      ".nav-dropdown:first-of-type .dropdown-trigger",
+    // Update scroll to top button visibility
+    scrollToTopBtn.style.display = state.showScrollButton ? "flex" : "none";
+
+    // Update active section highlighting
+    navItems.forEach((item) => {
+      const href = item.getAttribute("href");
+      if (href && href.substring(1) === state.activeSection) {
+        item.style.color = "#FA6600";
+      } else if (!item.classList.contains("nav-home")) {
+        item.style.color = "#121212";
+      }
+    });
+
+    // Update carousel
+    carouselTrack.style.transform = `translateX(-${state.currentSlide * 100}%)`;
+    dots.forEach((dot, index) => {
+      if (index === state.currentSlide) {
+        dot.classList.add("active");
+      } else {
+        dot.classList.remove("active");
+      }
+    });
+
+    // Update language buttons
+    langBtns.forEach((btn) => {
+      if (btn.classList.contains("lang-de")) {
+        btn.style.background =
+          state.language === "de" ? "#FA6600" : "transparent";
+        btn.style.color = state.language === "de" ? "white" : "#000";
+      } else if (btn.classList.contains("lang-en")) {
+        btn.style.background =
+          state.language === "en" ? "#FA6600" : "transparent";
+        btn.style.color = state.language === "en" ? "white" : "#000";
+      }
+    });
+
+    footerLangBtns.forEach((btn) => {
+      if (btn.classList.contains("footer-lang-de")) {
+        btn.style.background = state.language === "de" ? "#fff" : "transparent";
+        btn.style.color = state.language === "de" ? "#000" : "#fff";
+      } else if (btn.classList.contains("footer-lang-en")) {
+        btn.style.background = state.language === "en" ? "#fff" : "transparent";
+        btn.style.color = state.language === "en" ? "#000" : "#fff";
+      }
+    });
+
+    // Update text content based on language
+    updateLanguageContent();
+  }
+
+  function updateLanguageContent() {
+    const currentLang = state.translations[state.language];
+
+    // Update navigation items
+    document.querySelector(".nav-home").textContent = currentLang.home;
+    document.querySelector(".nav-about .nav-text").textContent =
+      currentLang.about;
+    document.querySelector(".nav-motorcycles .nav-text").textContent =
+      currentLang.motorcycles;
+    document.querySelectorAll(".nav-item")[3].textContent = currentLang.events;
+
+    // Update hero section
+    document.querySelector(".hero-welcome").textContent =
+      currentLang.heroWelcome;
+
+    // Update hero description paragraphs
+    const heroDescriptionParagraphs = document
+      .querySelector(".hero-description")
+      .querySelectorAll("p");
+    heroDescriptionParagraphs[0].textContent = currentLang.heroIntro;
+    heroDescriptionParagraphs[1].textContent = currentLang.heroBikes;
+    heroDescriptionParagraphs[2].textContent = currentLang.heroPassion;
+    // Skip paragraph 3 (it's a <br>)
+    // Skip paragraph 4 (it has fixed German text)
+    heroDescriptionParagraphs[5].textContent = currentLang.heroIdea;
+    // Skip paragraph 6 (it's a <br>)
+    heroDescriptionParagraphs[7].textContent = currentLang.heroOutro;
+
+    // Update CTA button
+    document.querySelector(".cta-button").textContent = currentLang.salesRoom;
+
+    // Update features section
+    const serviceTitles = document.querySelectorAll(".service-title");
+    serviceTitles[0].textContent = currentLang.onlinePurchase;
+    serviceTitles[1].textContent = currentLang.delivery;
+    serviceTitles[2].textContent = currentLang.tradeIn;
+    serviceTitles[3].textContent = currentLang.customization;
+
+    const serviceDescriptions = document.querySelectorAll(
+      ".service-description",
     );
-    motorcyclesDropdown.removeEventListener(
-      "mouseenter",
-      onMotorcyclesMouseenter,
-    );
-    motorcyclesDropdown.addEventListener("mouseenter", onMotorcyclesMouseenter);
-    motorcyclesDropdown.removeEventListener(
-      "mouseleave",
-      onMotorcyclesMouseleave,
-    );
-    motorcyclesDropdown.addEventListener("mouseleave", onMotorcyclesMouseleave);
+    serviceDescriptions[0].textContent = currentLang.purchaseDesc;
+    serviceDescriptions[1].textContent = currentLang.deliveryDesc;
+    serviceDescriptions[2].textContent = currentLang.tradeInDesc;
+    serviceDescriptions[3].textContent = currentLang.customDesc;
 
-    // Motorcycles dropdown icon
-    const motorcyclesIcon = document.querySelector(
-      ".nav-dropdown:first-of-type .dropdown-icon",
-    );
-    motorcyclesIcon.style.transform =
-      state.hoveredItem === "motorcycles" ? "rotate(180deg)" : "rotate(0)";
+    // Update gallery section
+    document.querySelector(".gallery .section-title").textContent =
+      currentLang.featuredBikes;
 
-    // About dropdown
-    const aboutDropdown = document.querySelector(
-      ".nav-dropdown:last-of-type .dropdown-trigger",
-    );
-    aboutDropdown.removeEventListener("mouseenter", onAboutMouseenter);
-    aboutDropdown.addEventListener("mouseenter", onAboutMouseenter);
-    aboutDropdown.removeEventListener("mouseleave", onAboutMouseleave);
-    aboutDropdown.addEventListener("mouseleave", onAboutMouseleave);
+    // Update location section
+    document.querySelector(".location .section-title").textContent =
+      currentLang.findUs;
 
-    // About dropdown icon
-    const aboutIcon = document.querySelector(
-      ".nav-dropdown:last-of-type .dropdown-icon",
-    );
-    aboutIcon.style.transform =
-      state.hoveredItem === "about" ? "rotate(180deg)" : "rotate(0)";
+    // Update footer
+    document.querySelector(".contact-info .footer-heading").textContent =
+      currentLang.contactUs;
+    document.querySelector(".quick-links .footer-heading").textContent =
+      currentLang.quickLinks;
+    document.querySelectorAll(".footer-link")[0].textContent =
+      currentLang.about;
+    document.querySelectorAll(".footer-link")[1].textContent =
+      currentLang.motorcycles;
+    document.querySelector(".copyright").textContent = currentLang.rights;
+  }
 
-    // Gallery slider
-    const gallerySlider = document.querySelector(".gallery-slider");
-    gallerySlider.style.transform = `translateX(-${state.currentSlide * 100}%)`;
+  function nextSlide() {
+    state.currentSlide = (state.currentSlide + 1) % carouselSlides.length;
+    updateUI();
+  }
 
-    // Gallery prev button
-    const prevButton = document.querySelector(".gallery-prev");
-    prevButton.removeEventListener("click", onPrevButtonClick);
-    prevButton.addEventListener("click", onPrevButtonClick);
+  function prevSlide() {
+    state.currentSlide =
+      (state.currentSlide - 1 + carouselSlides.length) % carouselSlides.length;
+    updateUI();
+  }
 
-    // Gallery next button
-    const nextButton = document.querySelector(".gallery-next");
-    nextButton.removeEventListener("click", onNextButtonClick);
-    nextButton.addEventListener("click", onNextButtonClick);
+  function goToSlide(index) {
+    state.currentSlide = index;
+    updateUI();
+  }
 
-    // Gallery dots
-    const dotsContainer = document.querySelector(".gallery-dots");
-    dotsContainer.innerHTML = "";
+  function scrollToTop() {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }
 
-    for (let i = 0; i < 4; i++) {
-      const dot = document.createElement("button");
-      dot.className = "dot";
-      dot.setAttribute("aria-label", `Go to slide ${i + 1}`);
-      dot.style.background =
-        state.currentSlide === i ? "white" : "rgba(255, 255, 255, 0.5)";
-      dot.addEventListener("click", () => {
-        state.goToSlide(i);
+  function scrollToSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({
+        behavior: "smooth",
       });
-      dotsContainer.appendChild(dot);
     }
-
-    // Map iframe
-    const mapIframe = document.querySelector(".map-container iframe");
-    mapIframe.style.border = "0";
-
-    destroyAnyNodes();
-    pendingUpdate = false;
+    closeMobileMenu();
   }
 
-  // Event handler for website click
-  function onWebsiteClick(event) {
-    state.closeMenu();
+  function setLanguage(lang) {
+    state.language = lang;
+    updateUI();
   }
 
-  // Event handler for menu button click
-  function onMenuButtonClick(event) {
-    event.stopPropagation();
-    state.toggleMenu();
+  function handleScroll() {
+    // Show/hide scroll to top button
+    state.showScrollButton = window.scrollY > 300;
+
+    // Determine active section
+    const sections = ["hero", "features", "gallery", "location"];
+    sections.forEach((section) => {
+      const element = document.getElementById(section);
+      if (element) {
+        const rect = element.getBoundingClientRect();
+        if (rect.top <= 100 && rect.bottom >= 100) {
+          state.activeSection = section;
+        }
+      }
+    });
+
+    updateUI();
   }
 
-  // Event handler for main nav mouseleave
-  function onMainNavMouseleave(event) {
-    state.closeMenu();
-  }
+  // Event Listeners
+  mobileMenuToggle.addEventListener("click", function (e) {
+    e.stopPropagation();
+    toggleMobileMenu();
+  });
 
-  // Event handler for motorcycles dropdown mouseenter
-  function onMotorcyclesMouseenter(event) {
-    state.setHoveredItem("motorcycles");
-  }
+  website.addEventListener("click", function () {
+    closeMobileMenu();
+  });
 
-  // Event handler for motorcycles dropdown mouseleave
-  function onMotorcyclesMouseleave(event) {
-    state.setHoveredItem(null);
-  }
+  mainNav.addEventListener("mouseleave", function () {
+    closeMobileMenu();
+  });
 
-  // Event handler for about dropdown mouseenter
-  function onAboutMouseenter(event) {
-    state.setHoveredItem("about");
-  }
+  scrollToTopBtn.addEventListener("click", scrollToTop);
 
-  // Event handler for about dropdown mouseleave
-  function onAboutMouseleave(event) {
-    state.setHoveredItem(null);
-  }
+  prevBtn.addEventListener("click", prevSlide);
+  nextBtn.addEventListener("click", nextSlide);
 
-  // Event handler for prev button click
-  function onPrevButtonClick(event) {
-    state.prevSlide();
-  }
-
-  // Event handler for next button click
-  function onNextButtonClick(event) {
-    state.nextSlide();
-  }
-
-  // Initialize the page
-  document.addEventListener("DOMContentLoaded", () => {
-    update();
-
-    // Auto-advance gallery slides
-    const interval = setInterval(() => {
-      state.nextSlide();
-    }, 5000);
-
-    // Cleanup on page unload
-    window.addEventListener("beforeunload", () => {
-      clearInterval(interval);
+  dots.forEach((dot, index) => {
+    dot.addEventListener("click", function () {
+      goToSlide(index);
     });
   });
 
-  // Handle window resize
-  window.addEventListener("resize", () => {
-    update();
+  navItems.forEach((item) => {
+    item.addEventListener("click", function (e) {
+      e.preventDefault();
+      const href = this.getAttribute("href");
+      if (href) {
+        scrollToSection(href.substring(1));
+      }
+    });
   });
-})();
+
+  footerLinks.forEach((link) => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+      const href = this.getAttribute("href");
+      if (href) {
+        scrollToSection(href.substring(1));
+      }
+    });
+  });
+
+  langBtns.forEach((btn) => {
+    btn.addEventListener("click", function () {
+      if (this.classList.contains("lang-de")) {
+        setLanguage("de");
+      } else if (this.classList.contains("lang-en")) {
+        setLanguage("en");
+      }
+    });
+  });
+
+  footerLangBtns.forEach((btn) => {
+    btn.addEventListener("click", function () {
+      if (this.classList.contains("footer-lang-de")) {
+        setLanguage("de");
+      } else if (this.classList.contains("footer-lang-en")) {
+        setLanguage("en");
+      }
+    });
+  });
+
+  window.addEventListener("scroll", handleScroll);
+
+  // Auto-advance carousel
+  setInterval(nextSlide, 5000);
+
+  // Initial UI update
+  updateUI();
+});
