@@ -172,7 +172,7 @@ body {
   background-size: cover;
   display: flex;
   flex-direction: column;
-  background-image: url(https://cdn.builder.io/api/v1/image/assets%2F7aeb5cf45399475b85c3a321bfd0a8a2%2F1f1b7cc94c4647e999dc8b020d9c3989);
+  background-image: url(img/hero.jpg);
   background-repeat: no-repeat;
   background-position: center;
   padding-top: 75px;
@@ -281,7 +281,7 @@ body {
   padding-bottom: 20px;
   padding-top: 20px;
   position: relative;
-  background-image: url(https://cdn.builder.io/api/v1/image/assets%2F7aeb5cf45399475b85c3a321bfd0a8a2%2F33291eb28d7d4a4d802bdc6b43f6671b);
+  background-image: url(img/features.png);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -336,7 +336,7 @@ body {
   flex-direction: column;
   align-items: center;
   width: 350px;
-  height: 315px;
+  height: 355px;
   padding: 25px 20px;
   border-top: 5px solid #fff;
   box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.11);
@@ -345,6 +345,22 @@ body {
   padding-top: 20px;
   padding-bottom: 20px;
   background-color: #000;
+}
+
+
+.service-button {
+  margin-top: 10px;
+  padding: 12px 45px;
+  background-color: #fa6600;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.service-button:hover {
+  background-color: #fa6600;
 }
 
 .icon-container {
@@ -518,7 +534,7 @@ body {
   background-attachment: fixed;
   position: relative;
   background-repeat: no-repeat;
-  background-image: url(https://cdn.builder.io/api/v1/image/assets%2F7aeb5cf45399475b85c3a321bfd0a8a2%2Fe159abde30f6469f807763b2a55fb967);
+  background-image: url(img/gallery05.jpg);
 }
 
 .location::before {
@@ -800,7 +816,7 @@ body {
   }
 
   .hero {
-    background-image: url(https://cdn.builder.io/api/v1/image/assets%2F7aeb5cf45399475b85c3a321bfd0a8a2%2Fabd995e12c2a45b1aa348a448093e239);
+    background-image: url(img/hero.jpg);
     background-position: center;
     background-repeat: no-repeat;
     display: flex;
