@@ -367,7 +367,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const navPrivacy = document.querySelector(".nav-privacy");
     if (navPrivacy) {
-      console.log("Updating .nav-privacy text to:", currentLang.privacy);
       navPrivacy.textContent = currentLang.privacy;
     } else {
       console.error(".nav-privacy element not found");
