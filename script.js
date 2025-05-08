@@ -454,7 +454,7 @@ document.addEventListener("DOMContentLoaded", function () {
       quickLinksHeading.textContent = currentLang.quickLinks;
     }
 
-    const legalinfoHeading = document.querySelector(".leagal-info .leagal-notice");
+    const legalinfoHeading = document.querySelector(".leagal-notice");
     if (legalinfoHeading) {
       legalinfoHeading.textContent = currentLang.legalNotice;
     }
@@ -630,7 +630,7 @@ document.addEventListener("DOMContentLoaded", function () {
       quickLinksHeading.textContent = currentLang.quickLinks;
     }
 
-    const legalinfoHeading = document.querySelector(".leagal-info .leagal-notice");
+    const legalinfoHeading = document.querySelector(".leagal-notice");
     if (legalinfoHeading) {
       legalinfoHeading.textContent = currentLang.legalNotice;
     }
