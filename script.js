@@ -622,6 +622,29 @@ document.addEventListener("DOMContentLoaded", function () {
     if (quickLinksHeading) {
       quickLinksHeading.textContent = currentLang.quickLinks;
     }
+
+    // Update features section
+    const serviceTitles = document.querySelectorAll(".service-title");
+    if (serviceTitles.length > 0) {
+      if (serviceTitles[0]) serviceTitles[0].textContent = currentLang.onlinePurchase;
+      if (serviceTitles[1]) serviceTitles[1].textContent = currentLang.delivery;
+      if (serviceTitles[2]) serviceTitles[2].textContent = currentLang.tradeIn;
+      if (serviceTitles[3]) serviceTitles[3].textContent = currentLang.customization;
+    }
+  
+    const serviceDescriptions = document.querySelectorAll(".service-description");
+    if (serviceDescriptions.length > 0) {
+      if (serviceDescriptions[0]) serviceDescriptions[0].textContent = currentLang.purchaseDesc;
+      if (serviceDescriptions[1]) serviceDescriptions[1].textContent = currentLang.deliveryDesc;
+      if (serviceDescriptions[2]) serviceDescriptions[2].textContent = currentLang.tradeInDesc;
+      if (serviceDescriptions[3]) serviceDescriptions[3].textContent = currentLang.customDesc;
+    }
+
+    // Update location section
+    const locationTitle = document.querySelector(".location .section-title");
+    if (locationTitle) {
+      locationTitle.textContent = currentLang.findUs;
+    }
   
     const footerLinks = document.querySelectorAll(".footer-link");
     if (footerLinks.length > 1) {
@@ -634,6 +657,23 @@ document.addEventListener("DOMContentLoaded", function () {
       copyright.textContent = currentLang.rights;
     }
   }
+
+
+
+    // Update active section highlighting
+    if (navItems) {
+      navItems.forEach((item) => {
+        const href = item.getAttribute("href");
+        if (href && href.substring(1) === state.activeSection) {
+          item.style.color = "#FA6600";
+        } else if (!item.classList.contains("nav-home")) {
+          item.style.color = "#121212";
+        }
+      });
+    }
+
+
+
 
   function nextSlide() {
     state.currentSlide = (state.currentSlide + 1) % carouselSlides.length;
