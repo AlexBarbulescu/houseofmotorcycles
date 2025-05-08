@@ -435,6 +435,15 @@ body {
   color: rgba(255, 255, 255, 1);
 }
 
+.section-title {
+  font-size: 42px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 50px;
+  color: rgb(0, 0, 0);
+}
+
+
 .carousel-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -937,4 +946,46 @@ body {
     grid-template-columns: 1fr;
     gap: 30px;
   }
+}
+
+/* Add this to your styles.css file */
+.privacy-policy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 50px;
+  text-align: center;
+  background-color: #f9f9f9; /* Optional: Add a background color */
+  min-height: 100vh; /* Ensure it takes up the full viewport height */
+}
+
+.privacy-policy-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #fff; /* Optional: Add a white background for the text box */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for better visibility */
+  border-radius: 8px; /* Optional: Add rounded corners */
+}
+
+/* Add this to your styles.css file */
+.privacy-policy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 50px;
+  text-align: center;
+  background-color: #f9f9f9; /* Optional: Add a background color */
+  min-height: 100vh; /* Ensure it takes up the full viewport height */
+}
+
+.privacy-policy-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #fff; /* Optional: Add a white background for the text box */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for better visibility */
+  border-radius: 8px; /* Optional: Add rounded corners */
 }
