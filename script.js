@@ -43,6 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
           "Du hast keine Lust dein Motorrad selber zu inserieren? Kein problem! Wir übernehmen das für dich!",
         customDesc: "Schau dir unsere Galerie an, lass dich inspirieren und lass uns wissen ob auch Du einen Umbau haben möchtest. Unsere Werkstatt wartet auf dich!",
         contactUs: "Kontakt",
+        legalNotice: "Impressum",
         quickLinks: "Schnellzugriff",
         rights: "© 2025 House of Motorcycles. Alle Rechte vorbehalten.",
         privacyText: `<br><br>
@@ -200,6 +201,7 @@ document.addEventListener("DOMContentLoaded", function () {
           "Don’t feel like listing your motorcycle yourself? No problem — we’ll take care of it for you!",
         customDesc: "Check out our gallery, get inspired, and let us know if you’d like a custom build too. Our workshop is ready for you!",
         contactUs: "Contact Us",
+        legalNotice: "Legal Notice",
         quickLinks: "Quick Links",
         rights: "© 2025 House of Motorcycles. All rights reserved.",
         privacyText: `            <br><br />
@@ -451,6 +453,11 @@ document.addEventListener("DOMContentLoaded", function () {
     if (quickLinksHeading) {
       quickLinksHeading.textContent = currentLang.quickLinks;
     }
+
+    const legalinfoHeading = document.querySelector(".leagal-info .leagal-notice");
+    if (legalinfoHeading) {
+      legalinfoHeading.textContent = currentLang.legalNotice;
+    }
   
     const footerLinks = document.querySelectorAll(".footer-link");
     if (footerLinks.length > 1) {
@@ -621,6 +628,11 @@ document.addEventListener("DOMContentLoaded", function () {
     const quickLinksHeading = document.querySelector(".quick-links .footer-heading");
     if (quickLinksHeading) {
       quickLinksHeading.textContent = currentLang.quickLinks;
+    }
+
+    const legalinfoHeading = document.querySelector(".leagal-info .leagal-notice");
+    if (legalinfoHeading) {
+      legalinfoHeading.textContent = currentLang.legalNotice;
     }
 
     // Update features section
